@@ -1,0 +1,12 @@
+#Loading packages
+library(tidyverse)
+
+#Assigning data to variable 
+ScoringData <- read.csv(url("https://raw.githubusercontent.com/Bovi-analytics/BIBCEssentials/master/Data/Scorings.csv"), sep = ";")
+
+#Data visualization
+ggplot(data = ScoringData, mapping = aes(x = Weight, y = Sex, fill = Sex)) + 
+  geom_boxplot(color = "black", outlier.shape = NA) +
+  geom_jitter(color = "black", size = 0.9, alpha = 0.9) +
+  labs(title = "Weight distribution of Brahma chickens") +
+  theme(plot.title = element_text(hjust = 0.5))
